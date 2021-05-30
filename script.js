@@ -13,7 +13,7 @@ var levelRow;
 var currentLevel;
 var levelNum = 1;
 var keey;
-var frames = 7;
+var frames = 14;
 var currentFrame = 0;
 var currentLR = 0;
 var audio = new Audio("sound/loop.mp3");
@@ -982,7 +982,7 @@ function draw(lvl, levelCol, levelRow, x, y) {
     }
     drawStep();
 }
-
+var frame = 0;
 function drawAnim() {
     if (levelNum != 6) {
         for (var c = 0; c < levelCol; c++) {
@@ -1009,10 +1009,14 @@ function drawAnim() {
     } else if (currentLR == 1) {
         ctx.drawImage(playerLeft, 0, 80 * currentFrame, 80, 80, x, y, sizeBlock, sizeBlock);
     }
-    if (currentFrame == frames) {
+    if (frame == frames) {
         currentFrame = 0;
+        frame = 0;
     } else {
-        currentFrame++;
+        if(frame%2==0){
+            currentFrame++;
+        }
+        frame++;
     }
 }
-setInterval(drawAnim, 100);
+setInterval(drawAnim, 50);
