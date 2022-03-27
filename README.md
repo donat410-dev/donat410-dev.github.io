@@ -1,2 +1,2 @@
 # Alebarda410.github.io
-Игра
+Игра на js
